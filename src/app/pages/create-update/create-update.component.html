@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Facturas</h1>  
+</div>
+
+<div class="container">
+    <form [formGroup]="formFactura" (ngSubmit)="updateCreateFactura()">
+        <div>
+          <label>Folio</label>
+          <input type="number" formControlName="folio" class="form-control">
+        </div>
+        <div>
+          <label>Descripcion</label>
+          <input type="text" formControlName="descripcion" class="form-control">
+        </div>
+        <div>
+            <label>Observacion</label>
+            <input type="text" formControlName="observacion" class="form-control">
+        </div>
+        <div>
+            <label>Fecha</label>
+            <input type="date" formControlName="fecha" class="form-control">
+        </div>
+        <div>
+            <button type="button" (click)="updateCreateFactura()" *ngIf="factura.id==0" routerLink="/home" [disabled]="formFactura.invalid" class="btn btn-primary btn-lg btn-block container">Guardar</button>
+            <button type="button" (click)="updateCreateFactura()" *ngIf="factura.id>0" routerLink="/home" [disabled]="formFactura.invalid" class="btn btn-primary btn-lg btn-block container">Actualizar</button>
+        </div>
+      </form>
+</div>
+

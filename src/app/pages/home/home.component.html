@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>Facturas</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="busqueda" placeholder="Buscar facturas..." [(ngModel)]="busquedaFactura">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <!--
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Acciones</th>
+            -->
+            <th>ID</th>
+            <th>Folio</th>
+            <th>Descripcion</th>
+            <th>Fecha</th>
+            <th>Nombre Cliente</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+          <tr *ngFor="let cliente of misClientes | busqueda:busquedaFactura">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.apellido}}</td>
+            <td>{{cliente.email}}</td>
+          </tr>  
+          -->
+          <tr *ngFor="let factura of misFacturas">
+            <td>{{factura.id}}</td>
+            <td>{{factura.folio}}</td>
+            <td>{{factura.descripcion}}</td>
+            <td>{{factura.observacion}}</td>
+            <td>{{factura.fecha}}</td>
+            <td>
+              <div>
+                <button type="button" (click)="navegarUpdate(factura.id)" class="btn btn-warning">Actualizar</button>
+                <button type="button" (click)="deleteFactura(factura.id)" class="btn btn-danger">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end container">
+  <button class="btn btn-success me-md-2" type="button" (click)="navegarUpdate(0)">Añadir</button>
+</div>
